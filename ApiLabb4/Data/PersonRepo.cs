@@ -19,7 +19,7 @@ namespace ApiLabb4.Data
             _Labb4Context.SaveChanges();
         }
 
-        public IEnumerable<Person> GetAllPersons()
+        public List<Person> GetAllPersons()
         {
             return _Labb4Context.Persons.ToList();
         }
@@ -48,6 +48,54 @@ namespace ApiLabb4.Data
                 _Labb4Context.SaveChanges();
             }
             return person;
+        }
+
+        public List<string> AllInterest(int Id)
+        {
+            List<Interest> allInterest = _Labb4Context.Interests.ToList();
+            List<string> allInterestTitels = new List<string>();
+            foreach (var item in allInterest)
+            {
+                if (item.personId == Id)
+                {
+                    allInterestTitels.Add(item.Titel.ToString());
+                }
+            }
+            return allInterestTitels;
+            
+        }
+        public List<string> AllLinks(int Id)
+        {
+            List<string> websiteByIdstring = new List<string>();
+            List<Interest> allInterest = _Labb4Context.Interests.ToList();
+            List<Interest> allInterestbyCorrectID = new List<Interest>();
+            foreach (var item in allInterest)
+            {
+                if (item.personId == Id)
+                {
+                    allInterestbyCorrectID.Add(item);
+                }
+            }
+            List<WebSite> allWebSite = _Labb4Context.WebSites.ToList();
+            var websiteById = (from i in allInterestbyCorrectID
+                              join w in allWebSite on i.interestId equals w.interestId
+                              select new { i, w = w.SiteURL }).ToList();
+            foreach (var item in websiteById)
+            {
+                websiteByIdstring.Add(item.w.ToString());
+            }
+            
+            return websiteByIdstring;
+        }
+
+        public Person NewInterest(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Person NewWebsite(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

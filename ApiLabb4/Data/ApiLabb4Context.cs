@@ -15,5 +15,7 @@ namespace ApiLabb4.Data
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Interest> Interests { get; set; }
+        public DbSet<WebSite> WebSites { get; set; }
+
     }
 }

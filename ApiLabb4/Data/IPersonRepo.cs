@@ -8,11 +8,17 @@ namespace ApiLabb4.Data
 {
     public interface IPersonRepo
     {
-        IEnumerable<Person> GetAllPersons();
+        List<Person> GetAllPersons();
         Person GetPersonById(int Id);
         Person AddPerson(Person person);
         void DeletePerson(Person person);
         Person UpdatePerson(Person person);
+        
+        List<string> AllInterest(int Id);
+        List<string> AllLinks(int Id);
+        Person NewInterest(int Id);
+        Person NewWebsite(int Id);
+
         //void Save();
 
     }
