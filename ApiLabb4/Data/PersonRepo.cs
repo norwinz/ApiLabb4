@@ -87,15 +87,6 @@ namespace ApiLabb4.Data
             
             return websiteByIdstring;
         }
-
-        public Person NewInterest(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Person NewWebsite(int Id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -10,14 +10,13 @@ namespace ApiLabb4.Data
     {
         List<Person> GetAllPersons();
         Person GetPersonById(int Id);
-        Person AddPerson(Person person);
-        void DeletePerson(Person person);
-        Person UpdatePerson(Person person);
+        Person AddPerson(Person person); //NYI
+        void DeletePerson(Person person); //NYI
+        Person UpdatePerson(Person person); //NYI
         
         List<string> AllInterest(int Id);
         List<string> AllLinks(int Id);
-        Person NewInterest(int Id);
-        Person NewWebsite(int Id);
+        
 
         //void Save();
 

@@ -32,6 +32,8 @@ namespace ApiLabb4
             services.AddDbContextPool<ApiLabb4Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DBContextConnection")));
             
             services.AddScoped<IPersonRepo, PersonRepo>();
+            services.AddScoped<IInterestRepo, InterestRepo>();
+            services.AddScoped<IWebSiteRepo, WebSiteRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
